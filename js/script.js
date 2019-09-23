@@ -1,10 +1,12 @@
 ﻿import "./byeie"; // loučíme se s IE
+import { text, comments } from "./data";
 
-/*
-// snadné načtení souboru pro každého!
-fetch("https://blabla.cz/blabla.json")
-  .then(response => response.json()) // nebo .text(), když to není json
-  .then(data => {
-    // tady jde provést s daty cokoliv
-  });
-*/
+Object.keys(text).forEach(o => {
+  let tmp = `<div id="par_${o}" class="row"><div class="txt">${text[o]}</div>`
+  if (o in comments) {
+    tmp += `<div class="cmnt">${comments[o]}</div>`
+  } else {
+    tmp += `<div class="cmnt_empty"></div>`
+  }
+  document.getElementById("textbx").innerHTML += tmp + `</div>`
+})
