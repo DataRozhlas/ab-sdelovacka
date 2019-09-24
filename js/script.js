@@ -13,5 +13,5 @@ Object.keys(text).forEach(o => {
 
 let cst= document.getElementsByClassName('cmnt')
 Array.from(cst, e => e.addEventListener('click', ev => {
-  document.getElementById(ev.originalTarget.id).classList.toggle('exp')
+  document.getElementById(ev.originalTarget.id).classList.add('exp')
 }))
