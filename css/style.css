@@ -3,17 +3,15 @@
     flex-wrap: wrap;
     width: 100%;
     height: 600px;
-    overflow: auto;
     margin: 10px;
     padding: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightgray;
+    height: auto;
 }
 
 .row {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 5px;
     justify-content: space-between
 }
@@ -24,11 +22,24 @@
     width: 35%;
     border-width: 1px;
     border-style: solid;
-    border-color: #3182bd;
+    border-color: #d52834;
     border-radius: 5px;
-    padding: 2px;
+    padding: 5px;
     left: 0px;
-    background-color: #9ecae1;
+    background-color: rgba(213, 40, 52, 0.2);
+    height: 30px;
+    text-overflow: ellipsis;
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cmnt.exp {
+    height: auto;
+    text-overflow: '';
+    white-space: normal;
+    overflow: auto;
 }
 
 .cmnt_empty {
@@ -45,3 +56,14 @@
     text-align: justify;
     word-wrap: break-word;
 }
+
+.quote {
+    background-color: rgba(213, 40, 52, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+    .txt, .cmnt {
+      width: 100%;
+      margin-top: 5px;
+    }
+  }

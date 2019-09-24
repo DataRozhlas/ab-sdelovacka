@@ -1,6 +1,7 @@
 #%%
 from bs4 import BeautifulSoup
 import json
+import re
 
 #%%
 with open('./scratch/sdelovacka.html', 'r') as f:
@@ -13,7 +14,11 @@ cmnts = {}
 
 for odst in soup.find_all('p', class_='c5'):
     oid += 1
-    txts[oid] = odst.text
+    tx = odst.text
+    for wr in [w for w in tx.split() if '[' in w]:
+        tx = tx.replace(wr, '<span class="quote">' + wr.split('[')[0] +
+        wr.split(']')[1] + '</span>')
+    txts[oid] = tx
 
     for comment in odst.find_all('sup'):
         cid = comment.find('a').get('href').replace('#', '')
@@ -23,17 +28,9 @@ for odst in soup.find_all('p', class_='c5'):
             cmnts[oid] += cpar.text + '<br>'
 
 #%%
-cpar.parent.parent
-
-#%%
 with open('./js/data.js', 'w', encoding='utf-8') as f:
     f.write(
         'export const text = ' + json.dumps(txts, ensure_ascii=False) + '\n' +
         'export const comments = ' + json.dumps(cmnts, ensure_ascii=False)
-
     )
 
-#%%
-cid
-
-#%%
