@@ -1,5 +1,7 @@
 ﻿import "./byeie"; // loučíme se s IE
-import { text, comments } from "./data";
+import { text } from "./text";
+import { comments } from "./comments";
+
 
 Object.keys(text).forEach(o => {
   let tmp = `<div id="par_${o}" class="row"><div class="txt">${text[o]}</div>`

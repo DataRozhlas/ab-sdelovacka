@@ -13,7 +13,7 @@ oid = 0
 txts = {}
 cmnts = {}
 
-for odst in soup.find_all('p', class_='c12'):
+for odst in soup.find_all('p', class_=['c12', 'c6']):
     oid += 1
     tx = markdown.markdown(odst.text).replace('<p>', '').replace('</p>', '')
     for wr in [w for w in tx.split() if '[' in w]:
@@ -29,9 +29,13 @@ for odst in soup.find_all('p', class_='c12'):
             cmnts[oid] += markdown.markdown(cpar.text).replace('<p>', '').replace('</p>', '') + '<br>'
 
 #%%
-with open('./js/data.js', 'w', encoding='utf-8') as f:
+with open('./js/text.js', 'w', encoding='utf-8') as f:
     f.write(
-        'export const text = ' + json.dumps(txts, ensure_ascii=False) + '\n' +
+        'export const text = ' + json.dumps(txts, ensure_ascii=False)
+    )
+
+with open('./js/comments.js', 'w', encoding='utf-8') as f:
+    f.write(
         'export const comments = ' + json.dumps(cmnts, ensure_ascii=False)
     )
 
