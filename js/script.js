@@ -53,7 +53,7 @@ fetch(host + '/ab-sdelovacka/data/comments.json')
       drawIt(text, comments)
     }
   })
-}, 0)
+}, 1)
 
 
 
