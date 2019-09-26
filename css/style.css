@@ -43,6 +43,10 @@
     cursor: auto;
 }
 
+.cmnt.exp img {
+    width: 100%;
+}
+
 .cmnt_empty {
     padding-left: 15px;
     font-size: 0.7em;
