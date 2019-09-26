@@ -44,6 +44,14 @@
     cursor: auto;
 }
 
+.pagenum {
+    width: 65%;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 .cmnt.exp img {
     width: 100%;
 }
@@ -71,5 +79,8 @@
     .txt, .cmnt {
       width: 100%;
       margin-top: 5px;
+    }
+    .pagenum {
+        width: 100%;
     }
   }
